@@ -9,12 +9,12 @@
     "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/3.jpg",
     "group": {
       "id": "group-1",
-      "name": "r/EmircanCaldir",
+      "name": "r/RN Developers",
       "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/11.png"
     },
     "user": {
       "id": "user-1",
-      "name": "u/User1",
+      "name": "u/EmircanCaldir",
       "image": null
     }
   },
@@ -190,4 +190,3 @@
     }
   }
 ]
-

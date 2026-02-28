@@ -10,6 +10,11 @@ type PostListItemProps = {
 }
 
 export default function PostListItem({ post, isDetailedPost }: PostListItemProps) {
+
+  const shouldShowImage = isDetailedPost || post.image;
+  const shouldShowDescription = isDetailedPost || !post.image;
+
+
   return (
     <Link href={`/post/${post.id}`}>
       <View style={{ paddingHorizontal: 15, paddingVertical: 10, gap: 7, borderBottomColor: 'lightgrey', borderBottomWidth: 0.5, backgroundColor: 'white' }}>
@@ -30,11 +35,11 @@ export default function PostListItem({ post, isDetailedPost }: PostListItemProps
 
         {/* CONTENT */}
         <Text style={styles.contentTitle}>{post.title}</Text>
-        {post.image && (
+        {shouldShowImage && post.image && (
           <Image source={{ uri: post.image }} style={styles.contentImage} />
         )}
 
-        {(post.description && !post.image) && (
+        {shouldShowDescription && post.description && (
           <Text style={styles.contentDescription} numberOfLines={isDetailedPost ? undefined : 4}>
             {post.description}
           </Text>
@@ -67,7 +72,8 @@ export default function PostListItem({ post, isDetailedPost }: PostListItemProps
 const styles = StyleSheet.create({
   headerContainer: {
     flexDirection: 'row',
-    gap: 10
+    gap: 10,
+    width: '100%'
   },
   headerImage: {
     width: 30,
@@ -90,7 +96,7 @@ const styles = StyleSheet.create({
     borderRadius: 13,
     paddingHorizontal: 7,
     paddingVertical: 3,
-        fontSize: 15,
+    fontSize: 15,
   },
   contentTitle: {
     fontSize: 17,
